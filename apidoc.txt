@@ -49,8 +49,8 @@
     url:http://127.0.0.1:8000/api/v1/register/
     method:post
     data:{
-                "username":"luminar",
-                "email":"luminar@gmail.com",
+                "username":"hari",
+                "email":"hari@gmail.com",
                 "password":"paswd"
         }
 

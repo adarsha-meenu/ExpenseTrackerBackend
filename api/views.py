@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import viewsets
+from rest_framework import status
 
 from api.serializers import TransactionSerializer,TransactionSummarySerializer,RegistrationSerializer
 from api.models import Transaction
@@ -70,9 +71,9 @@ class SignUpView(APIView):
         if serializer.is_valid():
             user_object=User.objects.create_user(**serializer.validated_data)
             serializer=RegistrationSerializer(user_object)
-            return Response(data=serializer.data)
+            return Response(data=serializer.data,status=status.HTTP_201_CREATED)
         else:
-            return Response(data=serializer.errors)
+            return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         
 
     
